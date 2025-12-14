@@ -59,7 +59,6 @@ Cela permet d’éviter le travail inutile et d’aligner la vision du projet.
 3. Crée une branche dédiée :
    ```sh
    git checkout -b feature/nom-de-la-fonctionnalite
-```
 
 4. Développe ta fonctionnalité
 5. Teste ton code localement
