@@ -40,6 +40,9 @@ Chaque fonctionnalité intégrée est le fruit d’une contribution validée.
       <img src="https://img.shields.io/github/license/youtsuho/OpenForge?style=flat-square" alt="License MIT" />
     </a>
   </p>
+  <h3>
+    <a href="https://discord.com/oauth2/authorize?client_id=1449792004128116857">🚀 Ajouter OpenForge à votre serveur</a>
+  </h3>
 </div>
 
 > [!IMPORTANT]
@@ -132,4 +135,3 @@ Chaque ligne de code compte. Chaque PR laisse une trace.
 **Forgeons l’avenir, ensemble.**
 
 Projet sérieux, base solide, vision long terme. On est bien. 🔥
-```

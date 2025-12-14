@@ -1,0 +1,31 @@
+{
+  "name": "openforge",
+  "version": "1.0.0",
+  "description": "OpenForge est un bot Discord open source communautaire. Il est conçu pour évoluer constamment grâce aux contributions, aux nouvelles commandes et aux idées de la communauté des développeurs. Un véritable projet collaboratif où chaque pull request laisse sa marque.",
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js",
+    "openforge"
+  ],
+  "homepage": "https://github.com/3T6-dsc/OpenForge#readme",
+  "bugs": {
+    "url": "https://github.com/3T6-dsc/OpenForge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3T6-dsc/OpenForge.git"
+  },
+  "license": "MIT",
+  "author": "youtsuho",
+  "type": "commonjs",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.0",
+    "dotenv": "^16.4.5"
+  }
+}
