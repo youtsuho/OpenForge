@@ -84,10 +84,10 @@ Créez un fichier `.env` à la racine du projet et complétez les informations :
 DISCORD_TOKEN=VOTRE_TOKEN_BOT
 
 # Configuration Base de données
-DB_HOST=147.93.95.249
-DB_PORT=3307
+DB_HOST=localhost
+DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=TaRadio37
+DB_PASSWORD=
 DB_DATABASE=openforge
 ```
 
