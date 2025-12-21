@@ -1,4 +1,4 @@
-const { Events } = require('discord.js');
+const { Events, ActivityType } = require('discord.js');
 
 module.exports = {
     name: Events.ClientReady,
@@ -14,6 +14,16 @@ module.exports = {
             // Enregistrement des commandes (API Discord)
             await client.application.commands.set(commands);
             
+            // --- DÉFINITION DE LA PRÉSENCE (STREAMING) ---
+            client.user.setPresence({
+                activities: [{ 
+                    name: `OpenForge | /help`, 
+                    type: ActivityType.Streaming,
+                    url: 'https://www.twitch.tv/nrj' 
+                }],
+                status: 'online',
+            });
+
             // --- DÉMARRAGE DE L'INTERFACE CONSOLE ---
             
             // 1. Nettoyage de la console
@@ -49,6 +59,7 @@ ${cyan}   ____                    ______
             console.log(` ${bright}${white}🆔 Bot ID      :${reset} ${yellow}${client.user.id}${reset}`);
             console.log(` ${bright}${white}🛡️  Serveurs    :${reset} ${yellow}${client.guilds.cache.size}${reset}`);
             console.log(` ${bright}${white}💻 Commandes   :${reset} ${yellow}${commands.length} chargées${reset}`);
+            console.log(` ${bright}${white}📺 Statut      :${reset} ${cyan}Streaming (Twitch/nrj)${reset}`);
             
             console.log(`${blue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset}`);
             console.log(`\n${white}En attente d'interactions...${reset}\n`);

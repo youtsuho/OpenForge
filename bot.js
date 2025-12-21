@@ -1,6 +1,8 @@
+
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js');
+const { initDatabase } = require('./db');
 require('dotenv').config();
 
 // Vérification du token
@@ -9,23 +11,20 @@ if (!process.env.DISCORD_TOKEN) {
     process.exit(1);
 }
 
-// Initialisation du client avec les intents nécessaires
+// Initialisation du client avec les intents en valeur numérique (53608447)
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
-    ],
-    partials: [Partials.Channel]
+    intents: 53608447,
+    partials: [Partials.Channel, Partials.Message, Partials.Reaction]
 });
+
+// Initialisation de la DB
+initDatabase();
 
 // Collection pour stocker les commandes
 client.commands = new Collection();
 
 // --- Chargement des commandes ---
 const foldersPath = path.join(__dirname, 'commands');
-// Vérifie si le dossier commands existe
 if (fs.existsSync(foldersPath)) {
     const commandFolders = fs.readdirSync(foldersPath);
 
@@ -37,12 +36,10 @@ if (fs.existsSync(foldersPath)) {
                 const filePath = path.join(commandsPath, file);
                 try {
                     const command = require(filePath);
-                    // Vérifie que la commande a les propriétés requises 'data' et 'execute'
                     if ('data' in command && 'execute' in command) {
+                        // On attache la catégorie (nom du dossier) à la commande
+                        command.category = folder;
                         client.commands.set(command.data.name, command);
-                        console.log(`[COMMANDE] Chargée : ${command.data.name}`);
-                    } else {
-                        console.log(`[AVERTISSEMENT] La commande à ${filePath} manque "data" ou "execute".`);
                     }
                 } catch (error) {
                     console.error(`[ERREUR] Impossible de charger la commande ${file}:`, error);
@@ -70,7 +67,6 @@ if (fs.existsSync(eventsPath)) {
                     } else {
                         client.on(event.name, (...args) => event.execute(...args));
                     }
-                    console.log(`[EVENT] Chargé : ${event.name}`);
                 } catch (error) {
                     console.error(`[ERREUR] Impossible de charger l'événement ${file}:`, error);
                 }

@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, Butt
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('about')
-        .setDescription('Découvre l\'histoire, l\'objectif et les liens utiles d\'OpenForge.'),
+        .setDescription(' 📖  Découvre l\'histoire, l\'objectif et les liens utiles d\'OpenForge.'),
     async execute(interaction) {
         
         const embed = new EmbedBuilder()
