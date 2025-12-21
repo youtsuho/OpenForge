@@ -54,20 +54,16 @@ Chaque fonctionnalité intégrée est le fruit d’une contribution validée.
 
 ## ✨ Fonctionnalités actuelles
 
-Cette liste est volontairement évolutive.  
-👉 **À vous de la faire grandir.**
-
-- [x] Commande `/ping` — Vérification de la latence
-- [x] Commande `/help` — Liste des commandes disponibles
-- [ ] Module de modération basique
-- [ ] Mini-jeux communautaires
-- [ ] Modules API externes
-- [ ] Système de plugins / modules
-- [ ] Votre idée 👀
+- [x] Commande `/ping` — Latence
+- [x] Système de Bienvenue SQL — Entièrement personnalisable via `/welcome-config`
+- [x] Constructeur d'Embed — `/embed-builder`
+- [x] Commandes de Modération — `/clear`, `/ban`, `/lock`, `/unlock`, `/normalize`
+- [x] Utilitaires — `/avatar`, `/info`, `/poll`, `/remind`, `/say`, `/help`
+- [x] Fun — `/couple`
 
 ---
 
-## ⚙️ Installation (pour les contributeurs)
+## ⚙️ Installation
 
 > [!NOTE]
 > **Node.js 20.x ou plus récent est requis**
@@ -82,20 +78,27 @@ npm install
 
 ### 2️⃣ Configuration
 
-Créez un fichier `.env` à la racine du projet :
+Créez un fichier `.env` à la racine du projet et complétez les informations :
 
 ```env
 DISCORD_TOKEN=VOTRE_TOKEN_BOT
+
+# Configuration Base de données
+DB_HOST=147.93.95.249
+DB_PORT=3307
+DB_USER=root
+DB_PASSWORD=TaRadio37
+DB_DATABASE=openforge
 ```
 
 > [!CAUTION]
 > Le fichier `.env` est ignoré par Git.
-> **Ne partagez jamais votre token Discord.**
+> **Ne partagez jamais vos accès SQL ou votre token Discord.**
 
 ### 3️⃣ Lancer le bot
 
 ```sh
-node index.js
+node bot.js
 # ou
 npm run dev
 ```
@@ -106,32 +109,11 @@ npm run dev
 
 OpenForge vit grâce à sa communauté.
 
-Avant toute contribution :
-
-* Consultez les **Issues** existantes
-* Proposez une idée si nécessaire
-* Forkez le projet
-* Créez une branche claire (`feature/`, `fix/`, etc.)
-* Soumettez un Pull Request propre et documenté
-
 📄 Toutes les contributions sont publiées sous **Licence MIT**.
-
----
-
-## ❓ Besoin d’aide ?
-
-* Ouvrez une **Issue GitHub**
-* Lancez une **Discussion GitHub** pour proposer ou débattre d’une idée
-
-👉 [https://github.com/youtsuho/OpenForge](https://github.com/youtsuho/OpenForge)
 
 ---
 
 ## 💖 Crédits
 
 Merci à tous les contributeurs qui participent à faire évoluer **OpenForge**.
-Chaque ligne de code compte. Chaque PR laisse une trace.
-
 **Forgeons l’avenir, ensemble.**
-
-Projet sérieux, base solide, vision long terme. On est bien. 🔥
