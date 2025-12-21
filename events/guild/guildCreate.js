@@ -1,5 +1,5 @@
 
-const { Events } = require('discord.js');
+const { Events, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: Events.GuildCreate,
@@ -12,12 +12,16 @@ module.exports = {
 
         try {
             const serverCount = client.guilds.cache.size;
-            const message = `<:OpenForge:1452088725202010263> Merci de m'avoir ajouté, je suis désormais sur ${serverCount} serveurs.`;
             
-            await channel.send(message);
-            console.log(`✅ Message de bienvenue envoyé pour l'ajout sur le serveur : ${guild.name}`);
+            const welcomeEmbed = new EmbedBuilder()
+                .setColor(0xFF5733) // Couleur orange Forge
+                .setDescription(`<:OpenForge:1452088725202010263> Merci de m'avoir ajouté, je suis désormais sur **${serverCount}** serveurs.`)
+                .setTimestamp();
+
+            await channel.send({ embeds: [welcomeEmbed] });
+            console.log(`✅ Message de bienvenue (Embed) envoyé pour l'ajout sur le serveur : ${guild.name}`);
         } catch (error) {
-            console.error(`❌ Erreur lors de l'envoi du message de bienvenue dans le salon de logs :`, error);
+            console.error(`❌ Erreur lors de l'envoi de l'embed de bienvenue dans le salon de logs :`, error);
         }
     },
 };
